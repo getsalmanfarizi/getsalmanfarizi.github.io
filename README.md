@@ -10,78 +10,25 @@
 **Multimedia & Digital Creator**  
 *Feel, Create, Serve with Purpose*
 
-Portfolio ini menampilkan karya, proses kreatif, dan eksplorasi saya di bidang multimedia, visual storytelling, serta konten digital.
+Portfolio ini menampilkan karya, hasil kreatif, dan eksplorasi saya di bidang multimedia, serta konten digital.
 
 ---
 
-## 👋 Tentang Saya
+## Website Portfolio
 
-Saya adalah **Multimedia & Digital Creator** berbasis di **Bandung, Indonesia**.  
-Berpengalaman dalam produksi visual, video, desain grafis, serta pengelolaan konten digital untuk media, komunitas, dan campaign sosial.
-
-Saya percaya bahwa karya visual tidak hanya soal estetika, tetapi juga tentang **makna, pesan, dan dampak**.
+**Live Site:**  
+https://getsalmanfarizi.github.io/port
 
 ---
 
-## 🎨 Highlight Portfolio
-
-### 📸 Gallery
-Kumpulan karya visual, meliputi:
-- WPAP (Wedha’s Pop Art Portrait)
-- Photo Compositing
-- Campaign Visual Communication
-- 3D Flat Illustration
-- Visual Eksperimen & Ilustrasi Tematik
-
-👉 Lihat halaman: `gallery.html`
-
----
-
-### 🎬 Video
-Produksi video untuk kebutuhan storytelling dan dokumentasi:
-- Event & Teaser
-- Dokumenter Pendek
-- Konten Sosial & Komunitas
-
-👉 Lihat halaman: `video.html`
-
----
-
-## 🧩 Skill & Tools
-
-### Creative Skills
-- Visual Storytelling  
-- Photo Manipulation & Compositing  
-- Video Editing  
-- Motion Graphic (Basic)  
-
-### Tools
-- Adobe Photoshop  
-- Adobe Premiere Pro  
-- Adobe After Effects  
-- Canva / Digital Asset Management  
-
----
-
-## 🌐 Website Portfolio
-
-🔗 **Live Site:**  
-👉 https://getsalmanfarizi.github.io/port
-
----
-
-## 📬 Kontak & Sosial Media
+## Kontak & Sosial Media
 
 - Instagram: https://instagram.com/getsalmanfarizi  
 - YouTube: https://www.youtube.com/@getsalmanfarizi
 
 ---
 
-## © Lisensi
+## Lisensi
 
-Seluruh karya dalam portfolio ini dilindungi hak cipta.  
-Tidak diperkenankan menggunakan materi tanpa izin tertulis dari pemilik.
-
----
-
+Seluruh karya dalam portfolio ini dilindungi hak cipta. Tidak diperkenankan menggunakan materi tanpa izin tertulis dari pemilik.
 © 2025 Salman Farizi
