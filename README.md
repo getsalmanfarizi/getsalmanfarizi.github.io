@@ -30,5 +30,4 @@ https://getsalmanfarizi.github.io/port
 
 ## Lisensi
 
-Seluruh karya dalam portfolio ini dilindungi hak cipta. Tidak diperkenankan menggunakan materi tanpa izin tertulis dari pemilik.
-© 2025 Salman Farizi
+Seluruh karya dalam portfolio ini dilindungi hak cipta. © 2025 Salman Farizi.
