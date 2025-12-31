@@ -73,8 +73,7 @@ Produksi video untuk kebutuhan storytelling dan dokumentasi:
 ## 📬 Kontak & Sosial Media
 
 - Instagram: https://instagram.com/getsalmanfarizi  
-- YouTube: https://www.youtube.com/@getsalmanfarizi  
-- WhatsApp: https://wa.me/6281299499109  
+- YouTube: https://www.youtube.com/@getsalmanfarizi
 
 ---
 
