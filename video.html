@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Video - Salman Farizi</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Koleksi video, teaser, dan konten video lainnya oleh Salman Farizi." />
+    <meta name="keywords"
+        content="Salman Farizi, multimedia creator, digital creator, video salman farizi, konten video, video motion, portfolio visual indonesia" />
+    <meta name="author" content="Salman Farizi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://getsalmanfarizi.github.io/video.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Video - Salman Farizi" />
+    <meta property="og:description" content="Video, motion, dan karya video lainnya oleh Salman Farizi." />
+    <meta property="og:image" content="assets/image/preview.png" />
+    <meta property="og:url" content="https://getsalmanfarizi.github.io/video.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- x -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Video - Salman Farizi" />
+    <meta name="twitter:description" content="Video, motion, dan karya video lainnya oleh Salman Farizi." />
+    <meta name="twitter:image" content="assets/image/preview.png" />
+
+    <!-- Theme -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0a0a0a" id="theme-color-meta" />
+
+    <!-- Icon -->
+    <link rel="icon" href="assets/icons/favicon.ico" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/pages/video.css" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Lib -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Core -->
+    <script src="js/pages/video.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            feather.replace({ 'stroke-width': 2 });
+        });
+    </script>
+    <script src="js/pages/video.js" defer></script>
+</head>
+
+<body>
+    <main id="main-content">
+        <div class="scroll-container" id="scroll-container">
+            <button onclick="scrollToSection('about')">SCROLL</button>
+            <div class="dot"></div>
+            <div class="line"></div>
+        </div>
+        </div>
+
+        <a href="index.html" class="btn-back">
+            <i data-feather="arrow-left"></i>
+            <span>Home</span>
+        </a>
+
+        <a class="btn-play-circle">
+            <i data-feather="play-circle"></i>
+        </a>
+
+        <div class="count-container" id="count-container">
+            <span id="current-slide">1</span>/<span id="total-slide">5</span>
+        </div>
+
+        <div class="section">
+            <img src="assets/images/image1.jpeg" data-mobile="assets/images/image1-mobile.jpg" class="fade-image active"
+                alt="Gambar 1" data-title="Nongkrong Bareng Owner Teras Sentani"
+                data-desc="Ngobrol santai bersama Ines Nabila, cerita, inspirasi, dan perjalanan Teras Sentani."
+                data-video="https://video.wixstatic.com/video/a1f9f6_798c95842fcd4acc96c346716ff8173f/1080p/mp4/file.mp4">
+
+            <img src="assets/images/image2.jpg" data-mobile="assets/images/image2-mobile.jpg" class="fade-image"
+                alt="Gambar 2" data-title="Teaser Event PBGC 2018 at DA Arena Stadium"
+                data-desc="Get ready for the ultimate battleground experience at DA Arena Stadium."
+                data-video="https://video.wixstatic.com/video/a1f9f6_8ba8c11288ae45bfa67052aec2a1445f/1080p/mp4/file.mp4">
+
+            <img src="assets/images/image3.jpg" data-mobile="assets/images/image3-mobile.jpg" class="fade-image"
+                alt="Gambar 3" data-title="Ikhtiar Wanita Muslimah"
+                data-desc="Ada ikhtiar, doa, dan perjuangan seorang wanita muslimah di balik sehelai hijab untuk tetap taat dari Firda Nurazizah."
+                data-video="https://video.wixstatic.com/video/a1f9f6_7e0c0f43072e4f35998e19c113eb8984/1080p/mp4/file.mp4">
+
+            <img src="assets/images/image4.jpg" data-mobile="assets/images/image4-mobile.jpg" class="fade-image"
+                alt="Gambar 4" data-title="Hadir Untukmu"
+                data-desc="Angkot mungkin menyebalkan, namun ia selalu hadir. Mengantar rindu, lelah, dan harapan."
+                data-video="https://video.wixstatic.com/video/a1f9f6_74bf9830c6c04c1fba0bba469b139274/1080p/mp4/file.mp4">
+
+            <img src="assets/images/image5.jpg" data-mobile="assets/images/image5-mobile.jpg" class="fade-image"
+                alt="Gambar 5" data-title="Tilawah An-Nas"
+                data-desc="Manusia sebagai makhluk yang rapuh secara batin dari Muhammad Rifai."
+                data-video="https://video.wixstatic.com/video/a1f9f6_9a7dda0f505f43039efabf58ac3301c6/1080p/mp4/file.mp4">
+        </div>
+
+        <div id="video-player-container" class="video-overlay"></div>
+
+        <div class="gradient-layer"></div>
+        <div class="text-layer">
+            <h1 id="title">Nongkrong Bareng Owner Teras Sentani</h1>
+            <p id="description">Coming soon</p>
+        </div>
+    </main>
+</body>
+
+</html>

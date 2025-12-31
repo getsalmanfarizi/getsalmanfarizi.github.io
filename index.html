@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>Salman Farizi - Multimedia & Digital Creator</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Portofolio resmi Salman Farizi, Multimedia & Digital Creator." />
+  <meta name="keywords"
+    content="Salman Farizi, multimedia creator, digital creator, video editor bandung, content creator bandung, desain grafis, visual storytelling, portfolio multimedia" />
+  <meta name="author" content="Salman Farizi" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://getsalmanfarizi.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Salman Farizi - Multimedia & Digital Creator" />
+  <meta property="og:description" content="Eksplorasi karya visual dan video oleh Salman Farizi." />
+  <meta property="og:image" content="assets/image/preview.png" />
+  <meta property="og:url" content="https://getsalmanfarizi.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- x -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Salman Farizi - Multimedia & Digital Creator" />
+  <meta name="twitter:description" content="Portofolio visual dan digital karya Salman Farizi." />
+  <meta name="twitter:image" content="assets/image/preview.png" />
+
+  <!-- Theme -->
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#fafafa" id="theme-color-meta" />
+
+  <!-- Icon -->
+  <link rel="icon" href="assets/icons/favicon.ico" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/pages/home.css" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet" />
+
+  <!-- Lib -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Core -->
+  <script>feather.replace();</script>
+  <script src="js/core/theme.js"></script>
+  <script src="js/pages/home.js" defer></script>
+</head>
+
+<body>
+  <main id="main-content">
+    <!-- =====================================================
+       THEME TOGGLE (LIGHT / DARK)
+       ===================================================== -->
+    <div class="theme-toggle">
+      <button id="toggle-theme" aria-label="Toggle theme">
+        <i data-feather="moon"></i>
+      </button>
+    </div>
+
+    <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+    <nav id="navbar" class="compact">
+      <button onclick="scrollToSection('home')">
+        <i data-feather="mail"></i>
+        <span>Contact</span>
+      </button>
+
+      <button onclick="scrollToSection('about')">
+        <i data-feather="user"></i>
+        <span>About</span>
+      </button>
+
+      <button onclick="scrollToSection('education')">
+        <i data-feather="book-open"></i>
+        <span>Studies</span>
+      </button>
+
+      <button onclick="scrollToSection('work')">
+        <i data-feather="briefcase"></i>
+        <span>Career</span>
+      </button>
+    </nav>
+
+    <!-- =====================================================
+       HOME SECTION
+       ===================================================== -->
+    <section id="home">
+      <h1 id="typed-title">Hi, I’m Salman.</h1>
+      <p id="typed-subtitle">Multimedia & Digital Creator</p>
+
+      <div class="container-social">
+        <a href="https://facebook.com/getsalmanfarizi" target="_blank" rel="noopener" class="btn-social">
+          <img src="assets/icons/facebook.svg" alt="Facebook">
+        </a>
+
+        <a href="https://instagram.com/getsalmanfarizi" target="_blank" rel="noopener" class="btn-social">
+          <img src="assets/icons/instagram.svg" alt="Instagram">
+        </a>
+
+        <a href="https://wa.me/6281299499109" target="_blank" rel="noopener" class="btn-social">
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+        </a>
+
+        <a href="https://threads.net/@getsalmanfarizi" target="_blank" rel="noopener" class="btn-social">
+          <img src="assets/icons/threads.svg" alt="Threads">
+        </a>
+
+        <a href="https://www.youtube.com/@getsalmanfarizi?sub_confirmation=1" target="_blank" rel="noopener"
+          class="btn-social">
+          <img src="assets/icons/youtube.svg" alt="YouTube">
+        </a>
+
+      </div>
+
+      <!-- Tombol yang memicu modal -->
+      <div class="container-theShow" id="container-theShow">
+        <button class="theShow-btn-play" id="openModal" aria-label="Play">
+          <i data-feather="coffee"></i>
+          <span class="btn-text">Give Me the Show</span>
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div id="showModal" class="modal">
+        <div class="modal-content">
+          <!-- Tombol close dengan icon SVG -->
+          <span class="close-btn">
+            <!-- Contoh menggunakan Feather X icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+
+          <h2>Which show do you want to see?</h2>
+          <div class="modal-buttons">
+            <a href="gallery.html" class="modal-btn">
+              <i data-feather="image"></i>
+              Gallery
+            </a>
+            <a href="video.html" class="modal-btn">
+              <i data-feather="video"></i>
+              Video
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="credit" id="credit">
+        © 2025 Created by Salman Farizi. <span class="made-with">Made with <i data-feather="heart"></i> from
+          Baleendah, for everyone.</span>
+      </p>
+    </section>
+
+    <!-- =====================================================
+       ABOUT SECTION
+       ===================================================== -->
+    <section id="about" class="about-section">
+      <h2>Tentang</h2>
+      <p>
+        Pendidikan saya dimulai sejak usia dini di TKIT Al-Ummah dan berlanjut hingga jenjang menengah.
+        Lingkungan pendidikan ini menanamkan disiplin, etika, dan keseimbangan antara ilmu serta keagamaan.
+        Proses belajar tersebut membentuk cara pandang saya dalam berkomunikasi.
+      </p>
+
+      <p>
+        Masa belajar di MTs dan MA Persis III Pameungpeuk menjadi fase penting pembentukan diri.
+        Saya dilatih untuk berpikir kritis dan bertanggung jawab.
+        Kepekaan terhadap realitas sosial tumbuh melalui pengalaman langsung.
+        Etika dan kedewasaan menjadi bagian dari pembelajaran sehari-hari.
+        Pengalaman ini memperkuat kesiapan akademik dan karakter pribadi.
+      </p>
+
+      <p>
+        Saya lahir di Gunung Sitoli, Nias, Sumatera Utara, pada 21 Juni 1997.
+        Latar belakang daerah dan pengalaman hidup yang beragam membentuk perspektif saya.
+        Ketertarikan pada dunia komunikasi membawa saya tetap melanjutkan studi di Kota Bandung.
+        Pilihan ini menjadi titik penting dalam perjalanan akademik saya.
+      </p>
+
+      <p>
+        Selama menempuh pendidikan di STAI PERSIS Bandung, saya aktif dalam organisasi kampus dan kegiatan
+        eksternal.
+        Keterlibatan ini melatih kemampuan komunikasi secara langsung.
+        Saya belajar bekerja dalam tim serta mengembangkan kreativitas dan kepemimpinan.
+        Pengalaman praktis diperoleh di luar ruang kelas.
+        Hal ini memperkaya pemahaman saya terhadap dunia profesional.
+      </p>
+
+      <p>
+        Selain pendidikan formal, saya mengikuti studi non-formal seperti INKANAS (2012) dan
+        Purwacaraka Music Studio (2017), serta terlibat dalam Organisasi Rindu Menanti (2019).
+        Pengalaman ini melatih disiplin, ekspresi seni, dan kepekaan sosial.
+        Saya memperoleh Piagam dan Sertifikat Grand Concert 2017.
+        Keterlibatan komunitas memperluas perspektif kolaboratif.
+        Seluruh pengalaman tersebut membentuk saya menjadi pribadi adaptif dan komunikatif.
+      </p>
+
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+       EDUCATION / EDUCATION SECTION
+       ===================================================== -->
+    <section id="education" class="education-section">
+      <div class="flex-timeline">
+        <div class="timeline-intro">
+          <h2>Studi</h2>
+          <p>Berikut adalah paparan perjalanan akademik dan pembelajaran yang telah saya tempuh, mulai dari pendidikan
+            formal dan non-formal.</p>
+        </div>
+
+        <div class="timeline-columns">
+          <div class="column">
+            <h3>A. Studi Formal</h3>
+            <ul class="timeline">
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="check-circle"></i>
+                </span>
+                <h5>2000 – 2002</h5>
+                <h2>TKIT Al-Ummah</h2>
+                <p>Memulai pendidikan dasar dengan pengenalan nilai-nilai Islami, keterampilan sosial, dan
+                  pembelajaran
+                  kognitif awal. Fondasi karakter dan rasa ingin tahu dibangun sejak usia dini.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Cibadak, Kab. Sukabumi, Jawa Barat
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="check-circle"></i>
+                </span>
+                <h5>2003 – 2009</h5>
+                <h2>SDN Impres Perumnas III</h2>
+                <p>Menempuh pendidikan dasar formal. Mengembangkan kemampuan membaca, menulis, berhitung, serta
+                  kemandirian
+                  belajar dan rasa ingin tahu akademik.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Rappocini, Kota Makassar, Sulawesi Selatan
+                </p>
+
+              </li>
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="check-circle"></i>
+                </span>
+                <h5>2010 – 2013</h5>
+                <h2>MTS Persis III Pameungpeuk</h2>
+                <p>Masa SMP yang memperluas wawasan akademik dan keagamaan. Mengasah disiplin belajar, berpikir
+                  kritis,
+                  dan
+                  keterampilan sosial.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Pameungpeuk, Kab. Bandung, Jawa Barat
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="check-circle"></i>
+                </span>
+                <h5>2013 – 2016</h5>
+                <h2>MA Persis III Pameungpeuk</h2>
+                <p>Menempuh pendidikan menengah atas dengan fokus pada ilmu agama dan persiapan akademik untuk
+                  pendidikan tinggi.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Pameungpeuk, Kab. Bandung, Jawa Barat
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="check-circle"></i>
+                </span>
+                <h5>2017 – 2021</h5>
+                <h2>STAI Persis Bandung - Program Studi KPI</h2>
+                <p>Menyelesaikan pendidikan tinggi dengan fokus pada komunikasi, literasi media, dan penyiaran Islami.
+                </p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Bojongsoang, Kab. Bandung, Jawa Barat
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="column">
+            <h3>B. Studi Non-Formal</h3>
+            <ul class="timeline">
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="circle"></i>
+                </span>
+                <h5>2012</h5>
+                <h2>English Course</h2>
+                <p>Mengikuti kursus bahasa Inggris dasar dengan pendampingan guru sekolah dasar di SDN Impres Perumnas
+                  III Makkasar</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Rappocini, Kota Makassar, Sulawesi Selatan
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="circle"></i>
+                </span>
+                <h5>2012</h5>
+                <h2>Institut Karate-Do Nasional (INKANAS)</h2>
+                <p>Mengembangkan kemampuan bela diri di INKANAS terhenti saat menuju tingkat sabuk hijau.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Parungkuda, Kab. Sukabumi, Jawa Barat
+                </p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="circle"></i>
+                </span>
+                <h5>2017</h5>
+                <h2>Purwacaraka Music Studio</h2>
+                <p>Mengembangkan bakat dan kreativitas di bidang musik. Memperoleh Piagam dan Sertifikat Grand Concert
+                  2017.
+                </p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Bandung Kidul, Kota Bandung, Jawa Barat
+                </p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="circle"></i>
+                </span>
+                <h5>2019</h5>
+                <h2>Organisasi Savana</h2>
+                <p>Savana merupakan organisasi yang bergerak di bidang media dan literasi independen, berfokus pada
+                  produksi koran kampus, film dokumenter, serta pengembangan literasi kritis dan kreatif.</p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Buahbatu, Kota Bandung, Jawa Barat
+                </p>
+              </li>
+
+
+              <li class="timeline-item">
+                <span class="timeline-icon">
+                  <i data-feather="circle"></i>
+                </span>
+                <h5>2019</h5>
+                <h2>Organisasi Rindu Menanti</h2>
+                <p>Gerakan radikal santai, dengan memanfaatkan fasilitas publik sebagai tempat penebaran virus
+                  literasi
+                  dan
+                  kreatifitas.
+                </p>
+                <p class="location">
+                  <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M16.37,12.79a1,1,0,0,0-.74,1.86C17.09,15.23,18,16.13,18,17c0,1.42-2.46,3-6,3s-6-1.58-6-3c0-.87.91-1.77,2.37-2.35a1,1,0,0,0-.74-1.86C5.36,13.69,4,15.26,4,17c0,2.8,3.51,5,8,5s8-2.2,8-5C20,15.26,18.64,13.69,16.37,12.79ZM11,9.86V17a1,1,0,0,0,2,0V9.86a4,4,0,1,0-2,0ZM12,4a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" />
+                  </svg>
+                  Kec. Buahbatu, Kota Bandung, Jawa Barat
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+       WORK EXPERIENCE SECTION
+       ===================================================== -->
+    <section id="work" class="horizontal-section">
+      <div class="section-inner">
+        <h2>Pengalaman</h2>
+        <p>Berikut adalah rangkuman perjalanan karier dan pengalaman yang telah saya tempuh, meliputi pekerjaan formal
+          maupun kegiatan non-formal.</p>
+        <div>
+          <div class="horizontal-track">
+            <div class="card">
+              <h3>Tely’s Media Net</h3>
+              <div class="position">Administrasi & Technical Support</div>
+              <div class="year-box">2015 – 2018</div>
+              <hr>
+              <ul>
+                <li>Mengelola administrasi</li>
+                <li>Menangani kebutuhan operasional</li>
+                <li>Maintenance perangkat</li>
+                <li>Menangani layanan pelanggan</li>
+              </ul>
+              <div class="location">Bandung</div>
+            </div>
+
+            <div class="card">
+              <h3>Sonzdesign</h3>
+              <div class="position">Video Content Creator</div>
+              <div class="year-box">2018 – 2020</div>
+              <hr>
+              <ul>
+                <li>Membuat video dan teaser event</li>
+                <li>Mengembangkan konten promosi</li>
+                <li>Berkolaborasi dengan talent</li>
+                <li>Mendukung pemasaran digital</li>
+              </ul>
+              <div class="location">Bandung</div>
+            </div>
+
+            <div class="card">
+              <h3>Clockword & Maha Production</h3>
+              <div class="position">Multimedia & Motion Graphic</div>
+              <div class="year-box">2021 – 2022</div>
+              <hr>
+              <ul>
+                <li>Mengagas komunitas kreatif Clockword</li>
+                <li>Mengoordinasikan kolaborasi</li>
+                <li>Membuat desain grafis visual</li>
+                <li>Membuat motion graphic film</li>
+              </ul>
+              <div class="location">Bandung - Cimahi</div>
+            </div>
+
+            <div class="card">
+              <h3>MGT Radio</h3>
+              <div class="position">Digital Officer / Multimedia Content</div>
+              <div class="year-box">2023</div>
+              <hr>
+              <ul>
+                <li>Mengelola aset digital media sosial</li>
+                <li>Membuat konten visual & video</li>
+                <li>Mendesain poster & materi promosi</li>
+                <li>Mendukung live streaming & tim kreatif</li>
+              </ul>
+              <div class="location">Bandung</div>
+            </div>
+
+            <div class="card">
+              <h3>Rumah Yatim</h3>
+              <div class="position">Volunteer Digital / Video Content</div>
+              <div class="year-box">2024 – 2025</div>
+              <hr>
+              <ul>
+                <li>Menyeleksi & mengelola hasil dokumentasi program</li>
+                <li>Membuat video bantuan mustahik</li>
+                <li>Editing video & menyusun alur cerita</li>
+                <li>Membuat desain grafis visual</li>
+              </ul>
+              <div class="location">Bandung</div>
+            </div>
+          </div>
+
+          <div class="section-closing">
+            <p>Perjalanan karier dan pengalaman yang saya jalani menjadi bagian penting dari proses pembelajaran.
+              Pengalaman
+              tersebut memberi kesempatan untuk mengembangkan kemampuan dan wawasan, baik dalam pekerjaan formal
+              maupun
+              kegiatan
+              non-formal. Rangkaian pengalaman ini menjadi bekal untuk terus beradaptasi dan berkembang.</p>
+
+            <p>Saya berharap dapat memberikan kontribusi positif dalam lingkungan kerja maupun proyek kolaboratif di
+              masa depan.
+              Terima kasih atas perhatian dan kesempatan yang diberikan, serta kepada tempat-tempat sebelumnya yang
+              telah menjadi
+              bagian penting dalam perjalanan karier saya.</p>
+          </div>
+          <div style="height: 22px;"></div>
+          <div class="container-credit-bottom">
+            <p class="credit-bottom" id="credit-bottom">
+              © 2025 Created by Salman Farizi. <span class="made-with">Made with <i data-feather="heart"></i> from
+                Baleendah, for everyone.</span>
+            </p>
+          </div>
+    </section>
+    <!-- =====================================================
+       SCROLL 
+       ===================================================== -->
+    <div class="scroll-container" id="scroll-container">
+      <button onclick="scrollToSection('about')">SCROLL</button>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </main>
+</body>
+
+</html>

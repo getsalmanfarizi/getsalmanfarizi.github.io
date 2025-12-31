@@ -1,0 +1,1110 @@
+/* =========================================================
+   VIEW TRANSITION RADIAL REVEAL
+   ========================================================= */
+
+::view-transition-new(root) {
+  clip-path: circle(var(--reveal-from, 0%) at var(--rx, 50%) var(--ry, 50%));
+  animation-name: reveal;
+  animation-duration: 1.4s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+@keyframes reveal {
+  to {
+    clip-path: circle(var(--reveal-to, 150%) at var(--rx, 50%) var(--ry, 50%));
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   CSS VARIABLES (THEME COLORS)
+   ========================================================= */
+:root {
+  /* Light theme colors */
+  --light-bg: #fafafa;
+  --light-text: #1d1d1f;
+  --light-text-secondary: #6e6e70;
+  --light-icon: #1d1d1f;
+  --light-card: rgba(250, 250, 250, 0.75);
+  --light-secondary-card: #f3f3f3;
+  --light-tirtary-card: #e9e9e9;
+  --light-border: rgba(0, 0, 0, 0.1);
+
+  /* Dark theme colors */
+  --dark-bg: #0a0a0a;
+  --dark-text: #f5f5f7;
+  --dark-text-secondary: #3d3d3d;
+  --dark-icon: #f5f5f7;
+  --dark-card: rgba(10, 10, 10, 0.75);
+  --dark-secondary-card: #0f0f0f;
+  --dark-tirtary-card: #151515;
+  --dark-border: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   BODY & DARK MODE
+   ========================================================= */
+
+button,
+a,
+.btn,
+[class*="btn"] {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100%;
+  touch-action: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 40px;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  font-family: "Heebo", sans-serif;
+  line-height: 1.2;
+  overflow-x: hidden;
+}
+
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* =========================================================
+   NAVIGATION (SMOOTHER MOTION)
+   ========================================================= */
+nav {
+  visibility: hidden;
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(24px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 24px;
+  border-radius: 999px;
+
+  border: 1px solid var(--light-border);
+
+  background-color: var(--light-card);
+  -webkit-backdrop-filter: saturate(192%) blur(20px);
+  backdrop-filter: saturate(192%) blur(20px);
+
+  max-height: 96px;
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 9999;
+
+  /* 🔹 unified easing & timing */
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform, max-height, padding, gap;
+}
+
+nav i,
+nav svg {
+  height: 20px;
+  width: 20px;
+  flex-shrink: 0;
+  stroke: var(--light-icon);
+}
+
+.dark-mode nav {
+  background-color: var(--dark-card);
+  border-color: var(--dark-border);
+}
+
+.dark-mode nav svg {
+  stroke: var(--dark-icon);
+}
+
+#navbar.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* =========================================================
+   COMPACT STATE (NO SIZE CHANGE)
+   ========================================================= */
+nav.compact {
+  max-height: 40px;
+  padding: 0 8px;
+  margin: 0;
+  gap: 0;
+}
+
+/* =========================================================
+   BUTTON (STABLE TAP AREA)
+   ========================================================= */
+nav button {
+  all: unset;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 6px 0px;
+  /* tap area tetap enak */
+  cursor: pointer;
+
+  white-space: nowrap;
+  /* teks tidak patah */
+  will-change: transform;
+}
+
+/* =========================================================
+   TEXT SPAN (SMOOTH COLLAPSE)
+   ========================================================= */
+nav button span {
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  transform-origin: center top;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.925s ease;
+  will-change: transform, opacity;
+}
+
+nav.compact button span {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(4px) scale(0.75);
+}
+
+nav:not(.compact) button span {
+  max-height: 24px;
+  margin-top: 4px;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+   ========================================================= */
+.theme-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+}
+
+.theme-toggle button {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+
+  border: 1px solid var(--light-bg);
+
+  background-color: var(--light-card);
+
+  -webkit-backdrop-filter: saturate(192%) blur(20px);
+  backdrop-filter: saturate(192%) blur(20px);
+}
+
+.dark-mode .theme-toggle button {
+  background-color: var(--dark-card);
+  border-color: var(--dark-bg);
+}
+
+.theme-toggle button.scrolled {
+  border: 1px solid var(--light-border);
+}
+
+.dark-mode .theme-toggle button.scrolled {
+  border-color: var(--dark-border);
+}
+
+.theme-toggle svg {
+  height: 20px;
+  width: 20px;
+  stroke: var(--light-icon);
+}
+
+.dark-mode .theme-toggle svg {
+  stroke: var(--dark-icon);
+}
+
+/* =========================================================
+   INSTRUCTIONS & CURSOR
+   ========================================================= */
+.scroll-container {
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.scroll-container button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+
+  font-family: 'Heebo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--light-text);
+
+  margin-bottom: 4px;
+  opacity: 0;
+
+  transform-origin: bottom center;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.dark-mode .scroll-container button {
+  color: var(--dark-text);
+}
+
+.scroll-container .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--light-icon);
+  margin-bottom: -2px;
+  transform: scale(0);
+}
+
+.scroll-container .line {
+  width: 1px;
+  height: 18px;
+  background-color: var(--light-icon);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+}
+
+.dark-mode .scroll-container .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--dark-icon);
+}
+
+.dark-mode .scroll-container .line {
+  width: 1px;
+  height: 20px;
+  background-color: var(--dark-icon);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+.about-section,
+.education-section {
+  padding: 0rem 8rem;
+  margin-bottom: 14px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  text-rendering: geometricPrecision;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.about-section {
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+/* =========================================================
+   HOME SECTION
+   ========================================================= */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#typed-title {
+  visibility: hidden;
+  font-size: 40px;
+  font-weight: 800;
+  padding-top: 24px;
+  margin: 0;
+}
+
+#typed-subtitle {
+  visibility: hidden;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 1.2em;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.cursor.light {
+  background-color: #1d1d1f;
+}
+
+.cursor.dark {
+  background-color: #f5f5f7;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.container-social {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   BTN SOCIAL NEUMORPHISM
+   ========================================================= */
+.btn-social {
+  --shadow-dark-x: 6px;
+  --shadow-dark-y: 6px;
+  --shadow-dark-blur: 16px;
+  --shadow-dark-color: rgba(0, 0, 0, 0.12);
+  /* alpha bisa diubah */
+
+  --shadow-light-x: -6px;
+  --shadow-light-y: -6px;
+  --shadow-light-blur: 16px;
+  --shadow-light-color: rgba(255, 255, 255, 0.7);
+  /* alpha bisa diubah */
+
+  box-shadow:
+    var(--shadow-dark-x) var(--shadow-dark-y) var(--shadow-dark-blur) var(--shadow-dark-color),
+    var(--shadow-light-x) var(--shadow-light-y) var(--shadow-light-blur) var(--shadow-light-color);
+
+  background: #fafafa;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  margin: 12px;
+}
+
+.btn-social:hover {
+  transform: scale(1.05);
+  /* efek tombol ditekan/hover */
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.7);
+}
+
+.btn-social:active {
+  transform: scale(0.98);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+}
+
+.btn-social img {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(6%) saturate(240%) hue-rotate(180deg) brightness(96%) contrast(94%);
+}
+
+.btn-social::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-social:hover img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.dark-mode .btn-social {
+  background: var(--dark-bg);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9), -5px -5px 15px rgba(255, 255, 255, 0.04);
+}
+
+.dark-mode .btn-social:hover::before {
+  background: var(--dark-bg);
+  box-shadow:
+    inset -6px -6px 12px rgba(255, 255, 255, 0.04),
+    inset 6px 6px 12px rgba(0, 0, 0, 0.9);
+}
+
+.dark-mode .btn-social img {
+  filter: brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(180%) hue-rotate(180deg) brightness(103%) contrast(98%);
+}
+
+.container-theShow {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.theShow-btn-play {
+  font-family: 'Heebo', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  height: 40px;
+  /* ⬅️ ubah dari 30px */
+  border-radius: 999px;
+  border: 1px solid var(--light-border);
+  background: var(--light-bg);
+  color: var(--light-text);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.dark-mode .theShow-btn-play {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.theShow-btn-play svg {
+  height: 22px;
+  width: 22px;
+}
+
+.theShow-btn-play svg polygon {
+  height: 20px;
+  width: 20px;
+  fill: var(--light-icon);
+  stroke: none;
+}
+
+.dark-mode .theShow-btn-play svg polygon {
+  fill: var(--dark-icon);
+}
+
+.credit {
+  visibility: hidden;
+  position: relative;
+  font-size: 14px;
+  font-weight: normal;
+  bottom: -100px;
+  display: inline;
+}
+
+.credit svg {
+  vertical-align: middle;
+  margin-bottom: 2px;
+  width: 10.1px;
+  height: 10.1px;
+  stroke: var(--light-icon);
+  stroke-width: 3.1;
+}
+
+.dark-mode .credit svg {
+  stroke: var(--dark-icon);
+}
+
+#typed-title,
+#typed-subtitle,
+.btn-social,
+#container-theShow {
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+/* =========================================================
+   STUDIES SECTION
+   ========================================================= */
+.flex-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.timeline-columns {
+  display: flex;
+  gap: 0px;
+  margin: 0px;
+  margin-top: -8px;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  margin: 0px;
+  min-width: 300px;
+}
+
+.timeline {
+  position: relative;
+  margin: 0px;
+  padding-left: 32px;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0px;
+  width: 1px;
+  background: var(--light-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+.timeline-item:not(:last-child) {
+  padding-bottom: 24px;
+  /* atur jarak sesuai kebutuhan */
+}
+
+.timeline-item h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.timeline-item h5 {
+  font-size: 12px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.timeline-item p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-icon);
+}
+
+.dark-mode .timeline::before {
+  background: var(--dark-border);
+}
+
+.dark-mode .timeline-icon {
+  background: var(--dark-bg);
+  color: var(--dark-icon);
+}
+
+.dark-mode .timeline-icon {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.map-pin {
+  width: 16px;
+  height: 16px;
+  fill: var(--light-icon);
+  margin-bottom: 0px;
+}
+
+.dark-mode .map-pin {
+  fill: var(--dark-icon);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 14px !important;
+  font-weight: 400;
+  gap: 6px;
+}
+
+.timeline-item p+.location {
+  margin-top: 8px;
+}
+
+/* =========================================================
+   WORK SECTION
+   ========================================================= */
+:root {
+  --side-space: 8rem;
+}
+
+.horizontal-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-inner {
+  padding-left: var(--side-space);
+  padding-right: var(--side-space);
+}
+
+.horizontal-track {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  padding-right: var(--side-space);
+}
+
+.section-closing {
+  margin-top: 24px;
+}
+
+.horizontal-track::after {
+  content: '';
+  flex: 0 0 var(--side-space);
+  padding-left: var(--side-space);
+}
+
+.card {
+  border-radius: 18px;
+  background: var(--light-secondary-card);
+  color: var(--light-text);
+  min-width: 284px;
+  max-width: 350px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scroll-snap-align: start;
+}
+
+.dark-mode .card {
+  background: var(--dark-secondary-card);
+  color: var(--dark-text);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card .year-box {
+  background: var(--light-tirtary-card);
+  color: var(--light-text);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.dark-mode .card .year-box {
+  background: var(--dark-tirtary-card);
+  color: var(--dark-text);
+}
+
+.card hr {
+  border: none;
+  height: 1px;
+  background: var(--light-border);
+  margin: 10px 0;
+}
+
+.dark-mode .card hr {
+  background: var(--dark-border);
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.card .location {
+  font-size: 0.85rem;
+  color: var(--light-text-secondary);
+  margin-top: auto;
+  text-align: right;
+}
+
+.dark-mode .card .location {
+  color: var(--dark-text-secondary);
+}
+
+/* =========================================================
+   CREDIT BOTTOM
+   ========================================================= */
+
+.container-credit-bottom {
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.credit-bottom {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 24px;
+  margin-bottom: 62px;
+  display: inline;
+}
+
+.credit-bottom svg {
+  vertical-align: middle;
+  margin-bottom: 2px;
+  width: 10.1px;
+  height: 10.1px;
+  stroke: var(--light-icon);
+  stroke-width: 3.1;
+}
+
+.dark-mode .credit-bottom svg {
+  stroke: var(--dark-icon);
+}
+
+/* =========================================================
+   MOBILE STYLE
+   ========================================================= */
+@media only screen and (max-width: 720px) {
+  body {
+    margin: 0;
+    margin-bottom: 40px;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    overflow-x: hidden;
+    font-family: "Heebo", sans-serif;
+    letter-spacing: normal;
+    line-height: 1.2;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  a {
+    outline: none;
+    /* hapus garis fokus default */
+    -webkit-tap-highlight-color: transparent;
+    /* hapus highlight biru */
+  }
+
+  .education-section {
+    padding: 0rem 1rem;
+    margin-bottom: 14px;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    text-rendering: geometricPrecision;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* =========================================================
+   HOME SECTION
+   ========================================================= */
+  #typed-title {
+    visibility: hidden;
+    font-size: 28px;
+    font-weight: 800;
+    padding-top: 24px;
+    margin: 0;
+  }
+
+  #typed-subtitle {
+    visibility: hidden;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  #home {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    /* penting: mencegah teks wrap */
+  }
+
+  #home .content {
+    display: inline-block;
+    /* agar teks tetap inline */
+    font-size: 2rem;
+    padding: 0 1rem;
+    /* opsional, memberi ruang di sisi */
+  }
+
+  /* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+  .about-section {
+    padding: 0rem 1rem;
+    padding-top: 4px;
+    padding-bottom: 0;
+  }
+
+  /* =========================================================
+   EDUCATION SECTION
+   ========================================================= */
+  .map-pin {
+    width: 18px;
+    height: 18px;
+    fill: var(--light-icon);
+    margin-bottom: 22px;
+  }
+
+  /* =========================================================
+   WORK SECTION
+   ========================================================= */
+  :root {
+    --side-space: 1rem;
+  }
+
+  .horizontal-track::after {
+    content: '';
+    flex: 0 0rem;
+    padding-left: 0.4rem;
+  }
+
+  .card {
+    border-radius: 16px;
+    background: var(--light-secondary-card);
+    color: var(--light-text);
+    min-width: 260px;
+    max-width: 280px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    scroll-snap-align: start;
+  }
+
+  .credit {
+    font-size: 10px;
+  }
+
+  .credit svg {
+    vertical-align: middle;
+    margin-bottom: 2px;
+    width: 6px;
+    height: 6px;
+    stroke: var(--light-icon);
+    stroke-width: 4;
+  }
+
+  .credit-bottom {
+    font-size: 10px;
+  }
+
+  .credit-bottom svg {
+    vertical-align: middle;
+    margin-bottom: 2px;
+    width: 6px;
+    height: 6px;
+    stroke: var(--light-icon);
+    stroke-width: 4;
+  }
+
+  .credit .made-with {
+    display: block;
+  }
+
+  .credit-bottom .made-with {
+    display: block;
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1.7px);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Saat modal dibuka */
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Konten modal */
+.modal-content {
+  background-color: var(--light-bg);
+  padding: 20px;
+  border-radius: 16px;
+  min-width: 280px;
+  text-align: center;
+  font-family: 'Heebo', sans-serif;
+}
+
+/* Dark mode */
+.dark-mode .modal-content {
+  background-color: var(--dark-tirtary-card);
+}
+
+/* Tombol close */
+.close-btn {
+  color: var(--light-text);
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.dark-mode .close-btn {
+  color: var(--dark-text);
+}
+
+.close-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Tombol pilihan */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.modal-btn {
+  width: 100%;
+  font-family: 'Heebo', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--light-border);
+  background: var(--light-bg);
+  color: var(--light-text);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-buttons svg {
+  height: 22px;
+  width: 22px;
+}
+
+.dark-mode .modal-btn {
+  border: 1px solid var(--dark-border);
+  background: var(--dark-tirtary-card);
+  color: var(--dark-text);
+}
+
+.modal-btn:hover {
+  background-color: var(--light-border);
+}
+
+.dark-mode .modal-btn:hover {
+  background-color: var(--dark-border);
+}
+
+.modal-content h2 {
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.2;
+  margin-top: 6px;
+}
+
+/* Animasi modal muncul */
+@keyframes modalFade {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
