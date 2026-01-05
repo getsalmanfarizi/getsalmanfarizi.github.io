@@ -23,7 +23,9 @@ https://getsalmanfarizi.github.io/port
 
 ## Kontak & Sosial Media
 
-- Instagram: https://instagram.com/getsalmanfarizi  
+- Facebook: https://facebook.com/getsalmanfarizi
+- Instagram: https://instagram.com/getsalmanfarizi
+- Threads: https://threads.net/@getsalmanfarizi
 - YouTube: https://www.youtube.com/@getsalmanfarizi
 
 ---
