@@ -859,7 +859,8 @@ nav:not(.compact) button span {
     /* hapus highlight biru */
   }
 
-  .education-section {
+  .education-section,
+  .software-skills {
     padding: 0rem 1rem;
     margin-bottom: 14px;
     will-change: transform;
@@ -996,7 +997,7 @@ nav:not(.compact) button span {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(1.7px);
-  
+
   display: flex;
   justify-content: center;
   align-items: center;

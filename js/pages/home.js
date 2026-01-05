@@ -231,7 +231,7 @@ function showElementsOnPreload() {
         }
     );
 
-    tl.to({}, { duration: 0.5});
+    tl.to({}, { duration: 0.5 });
 
     tl.to(".credit", {
         opacity: 0,
@@ -501,3 +501,7 @@ window.addEventListener('click', (e) => {
         modal.classList.remove('show');
     }
 });
+
+const currentYear = new Date().getFullYear();
+document.getElementById('current-year').textContent = currentYear;
+document.getElementById('current-year-bottom').textContent = currentYear;
