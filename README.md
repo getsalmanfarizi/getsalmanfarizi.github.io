@@ -17,7 +17,7 @@ Portfolio ini menampilkan karya, hasil kreatif, dan eksplorasi saya di bidang mu
 ## Website Portfolio
 
 **Live Site:**  
-https://getsalmanfarizi.github.io/port
+https://getsalmanfarizi.github.io/
 
 ---
 
